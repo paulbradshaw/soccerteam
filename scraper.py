@@ -22,20 +22,17 @@ for name in names:
   record['link'] = name.attrib['href']
   record['name'] = name.text.encode('ascii', 'ignore')
   print record
-  scraperwiki.sqlite.save(unique_keys=['link'], data=record)
+  scraperwiki.sqlite.save(unique_keys=['link'], data=record, table_name = "players")
 '''
 
 players = root.cssselect("td")
-for player in players:
-  links = player.cssselect("div a")
+for picture in pictures:
+  links = picture.cssselect("div span")
   for link in links:
-    print link.text.encode('ascii', 'ignore')
-    print link.attrib['href']
-  #store the link in the variable 'record' under the key 'link'
-    record['link'] = link.attrib['href']
-    record['name'] = link.text.encode('ascii', 'ignore')
+    record['img'] = link.attrib['class']
+    #record['name'] = link.text.encode('ascii', 'ignore')
     print record
-    #scraperwiki.sqlite.save(unique_keys=['link'], data=record)
+    scraperwiki.sqlite.save(unique_keys=['img'], data=record, table_name = "pictures")
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
