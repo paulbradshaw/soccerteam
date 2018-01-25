@@ -19,13 +19,13 @@ tds = root.cssselect("td")
 print 'THESE ARE THE TDS', tds
 print 'THERE ARE ', len(tds), ' TDS'
 for td in tds:
-  print td.text_content()
-  print 'THIS IS THE TD', td
-  seconddiv = td.cssselect("div:nth-child(2)")
-  try:
-    print 'THIS IS THE TEXT', seconddiv.text_content()
-  except AttributeError:
-    print 'NO TEXT'
+  print td.text_content().encode('ascii', 'ignore')
+  #print 'THIS IS THE TD', td
+  ##seconddiv = td.cssselect("div:nth-child(2)")
+  #try:
+   # print 'THIS IS THE TEXT', seconddiv.text_content()
+  #except AttributeError:
+   # print 'NO TEXT'
 #  print seconddiv.text_content()
   #page_team_1_block_team_squad_8-table > tbody:nth-child(4) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(2)
   
