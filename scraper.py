@@ -19,6 +19,7 @@ tds = root.cssselect("td")
 print 'THESE ARE THE TDS', tds
 print 'THERE ARE ', len(tds), ' TDS'
 for td in tds:
+  print td.text_content()
   print 'THIS IS THE TD', td
   seconddiv = td.cssselect("div:nth-child(2)")
   try:
