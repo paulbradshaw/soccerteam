@@ -21,8 +21,11 @@ print 'THERE ARE ', len(tds), ' TDS'
 for td in tds:
   print 'THIS IS THE TD', td
   seconddiv = td.cssselect("div:nth-child(2)")
-  print 'THIS IS THE TEXT', seconddiv.text
-  print seconddiv.text_content()
+  try:
+    print 'THIS IS THE TEXT', seconddiv.text
+  except AttributeError:
+    print 'NO TEXT'
+#  print seconddiv.text_content()
   #page_team_1_block_team_squad_8-table > tbody:nth-child(4) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(2)
   
 
