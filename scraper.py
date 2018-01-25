@@ -9,7 +9,7 @@ html = scraperwiki.scrape("https://uk.soccerway.com/teams/france/racing-club-de-
 #
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-names = root.cssselect("div a")
+names = root.cssselect("td div a")
 for name in names:
   print name.attrib['href']
 #
