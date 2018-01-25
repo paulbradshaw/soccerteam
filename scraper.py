@@ -11,10 +11,11 @@ html = scraperwiki.scrape("https://int.soccerway.com/teams/england/chelsea-footb
 record = {}
 mydictionary = {"name" : "Paul"}
 
-'''
+
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 names = root.cssselect("td div a")
+'''
 for name in names:
   print name.text.encode('ascii', 'ignore')
   print name.attrib['href']
