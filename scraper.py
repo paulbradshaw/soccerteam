@@ -14,7 +14,23 @@ mydictionary = {"name" : "Paul"}
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-names = root.cssselect("td div a")
+
+tds = root.cssselect("td")
+for td in tds:
+  seconddiv = td.cssselect("div")[1]
+  print seconddiv.text
+  #page_team_1_block_team_squad_8-table > tbody:nth-child(4) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(2)
+  
+
+
+
+
+
+
+
+
+
+
 '''
 for name in names:
   print name.text.encode('ascii', 'ignore')
@@ -26,6 +42,7 @@ for name in names:
   scraperwiki.sqlite.save(unique_keys=['link'], data=record, table_name = "players")
 '''
 
+'''
 players = root.cssselect("td")
 for player in players:
   pix = player.cssselect("div span")
@@ -34,6 +51,7 @@ for player in players:
     #record['name'] = link.text.encode('ascii', 'ignore')
     print record
     scraperwiki.sqlite.save(unique_keys=['img'], data=record, table_name = "pictures")
+'''
 #
 # # Write out to the sqlite database using scraperwiki library
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
