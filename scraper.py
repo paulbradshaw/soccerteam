@@ -7,15 +7,19 @@ import lxml.html
 # # Read in a page
 html = scraperwiki.scrape("https://int.soccerway.com/teams/england/chelsea-football-club/661/")
 
+#create an empty dictionary variable to hold our data later
 record = {}
+mydictionary = {"name" : "Paul"}
 
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 names = root.cssselect("td div a")
 for name in names:
-  print name.text
+  #print name.text
   print name.attrib['href']
+  #store the link in the variable 'record' under the key 'link'
   record['link'] = name.attrib['href']
+  print record
   scraperwiki.sqlite.save(unique_keys=['link'], data=record)
 #
 # # Write out to the sqlite database using scraperwiki library
