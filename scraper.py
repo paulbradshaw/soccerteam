@@ -28,7 +28,7 @@ for name in names:
 
 players = root.cssselect("td")
 for player in players:
-  pix = picture.cssselect("div span")
+  pix = player.cssselect("div span")
   for pic in pix:
     record['img'] = pic.attrib['class']
     #record['name'] = link.text.encode('ascii', 'ignore')
