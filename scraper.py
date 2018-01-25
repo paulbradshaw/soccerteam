@@ -15,11 +15,12 @@ mydictionary = {"name" : "Paul"}
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
 
-tds = root.cssselect("td")
+tds = root.cssselect("td div")
 print 'THESE ARE THE TDS', tds
 print 'THERE ARE ', len(tds), ' TDS'
 for td in tds:
   print td.text_content().encode('ascii', 'ignore')
+  
   #print 'THIS IS THE TD', td
   ##seconddiv = td.cssselect("div:nth-child(2)")
   #try:
