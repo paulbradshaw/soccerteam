@@ -15,7 +15,7 @@ mydictionary = {"name" : "Paul"}
 root = lxml.html.fromstring(html)
 names = root.cssselect("td div a")
 for name in names:
-  #print name.text
+  print name.text.encode('ascii', 'ignore')
   print name.attrib['href']
   #store the link in the variable 'record' under the key 'link'
   record['link'] = name.attrib['href']
