@@ -16,9 +16,12 @@ mydictionary = {"name" : "Paul"}
 root = lxml.html.fromstring(html)
 
 tds = root.cssselect("td")
-for td in tds[3:8]:
+print 'THESE ARE THE TDS', tds
+for td in tds:
+  print 'THIS IS THE TD', td
   seconddiv = td.cssselect("div:nth-child(2)")
-  print seconddiv.text
+  print 'THIS IS THE TEXT', seconddiv.text
+  print seconddiv.text_content()
   #page_team_1_block_team_squad_8-table > tbody:nth-child(4) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(2)
   
 
