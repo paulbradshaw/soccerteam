@@ -19,7 +19,11 @@ tds = root.cssselect("td div")
 print 'THESE ARE THE TDS', tds
 print 'THERE ARE ', len(tds), ' TDS'
 for td in tds:
-  print td.text_content().encode('ascii', 'ignore')
+  div = td.text_content().encode('ascii', 'ignore')
+  if "years" in div:
+    print "YIPPEE"
+    record['age'] = div
+    scraperwiki.sqlite.save(unique_keys=['age'], data=record, table_name = "ages")
   
   #print 'THIS IS THE TD', td
   ##seconddiv = td.cssselect("div:nth-child(2)")
