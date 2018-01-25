@@ -22,7 +22,7 @@ for td in tds:
   print 'THIS IS THE TD', td
   seconddiv = td.cssselect("div:nth-child(2)")
   try:
-    print 'THIS IS THE TEXT', seconddiv.text
+    print 'THIS IS THE TEXT', seconddiv.text_content()
   except AttributeError:
     print 'NO TEXT'
 #  print seconddiv.text_content()
