@@ -17,7 +17,7 @@ root = lxml.html.fromstring(html)
 
 tds = root.cssselect("td")
 for td in tds:
-  seconddiv = td.cssselect("div")[1]
+  seconddiv = td.cssselect("div:nth-child(2)")
   print seconddiv.text
   #page_team_1_block_team_squad_8-table > tbody:nth-child(4) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(2)
   
