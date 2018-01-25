@@ -27,10 +27,10 @@ for name in names:
 '''
 
 players = root.cssselect("td")
-for picture in pictures:
-  links = picture.cssselect("div span")
-  for link in links:
-    record['img'] = link.attrib['class']
+for player in players:
+  pix = picture.cssselect("div span")
+  for pic in pix:
+    record['img'] = pic.attrib['class']
     #record['name'] = link.text.encode('ascii', 'ignore')
     print record
     scraperwiki.sqlite.save(unique_keys=['img'], data=record, table_name = "pictures")
